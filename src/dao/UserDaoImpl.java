@@ -84,7 +84,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean deleteProduct(Product product) {
-	
+
 		String query = "delete from product where productId = ?";
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setInt(1, product.getProductId());
@@ -107,7 +107,7 @@ public class UserDaoImpl implements UserDao {
 			statement.setString(3, product.getSize());
 			statement.setString(4, product.getCamera());
 			statement.setDouble(5, product.getPrice());
-			
+
 			statement.setInt(6, product.getProductId());
 
 			statement.executeUpdate();
@@ -116,15 +116,6 @@ public class UserDaoImpl implements UserDao {
 			// TODO: handle exception
 		}
 		return true;
-	}
-
-	public static void main(String[] args) {
-		UserDaoImpl d = new UserDaoImpl();
-		// User user = new User("Amila", "amila123", "amila", "", 100);
-
-		Product p = new Product(1,"motorola", "3310", "5 inch", "", 100);
-		System.out.println(d.deleteProduct(p));
-
 	}
 
 }
