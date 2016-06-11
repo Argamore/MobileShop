@@ -46,7 +46,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean registerUser(User user) {
-		String query = "insert into mobile_shop user (username, password, email, role) values (?,?,?,?)";
+		String query = "insert into user (username, password, email, role) values (?,?,?,?)";
 
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 			statement.setString(1, user.getUsername());
@@ -56,7 +56,7 @@ public class UserDaoImpl implements UserDao {
 
 			statement.executeUpdate();
 		} catch (SQLException e) {
-			// TODO: handle exception
+			return false;
 		}
 		return true;
 	}
@@ -92,7 +92,7 @@ public class UserDaoImpl implements UserDao {
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return true;
 	}
@@ -114,7 +114,7 @@ public class UserDaoImpl implements UserDao {
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		return true;
 	}

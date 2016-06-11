@@ -3,19 +3,22 @@ package bo;
 import dto.Product;
 import dto.User;
 
-//neke od metoda koje trebaju u biznis logici, dodaj jos ako mislis da treba..
 public interface UserBo {
 
-	//metoda koja provjerava da li user postoji i vraca usera ukoliko postoji 
+	//checks if user exists and returns user if it does
 	
-	public User validateUser();
+	public User validateUser(String name, String pass);
 	
-	//metoda koja registruje usera, ukoliko ne postoji
+	//registers users if the  user name is valid
 	
-	public boolean registerUser();
+	public boolean registerUser(User user);
 	
-	//dodaj ostale
+	//methods for administrator uses
 	
+	public boolean addProduct(Product p);
 	
+	public boolean editProduct(Product p);
+	
+	public boolean deleteProduct(Product p);
 	
 }

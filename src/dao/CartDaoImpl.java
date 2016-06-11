@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import dto.Product;
-import dto.User;
 
 public class CartDaoImpl implements CartDao {
 
@@ -30,22 +29,22 @@ public class CartDaoImpl implements CartDao {
 	}
 
 	@Override
-	public boolean removeFromCart(int productId) {
+	public boolean removeFromCart(int productId, int cartId) {
 
-		String query = "delete from cart where productId = ?";
+		String query = "delete from cart where productId = ? and cartId= ?";
 
 		try (PreparedStatement statement = connection.prepareStatement(query)) {
 
 			statement.setInt(1, productId);
+			statement.setInt(2, cartId);
 
 			statement.executeUpdate();
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 		return true;
 
 	}
-
 
 }
