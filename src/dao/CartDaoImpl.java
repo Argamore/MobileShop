@@ -47,21 +47,5 @@ public class CartDaoImpl implements CartDao {
 
 	}
 
-	public static void main(String[] args) throws SQLException {
-
-		Product p = new Product();
-
-		p = new ProductDaoImpl().searchByModel("3310");
-
-		// new Product(1, "nokia", "3310", "2''", "8mp", 121);
-
-		User u = new User();
-		u = new UserDaoImpl().validateUser("Amila", "amila123");
-
-		CartDaoImpl c = new CartDaoImpl();
-
-		System.out.println(c.removeFromCart(p.getProductId()));
-
-	}
 
 }
